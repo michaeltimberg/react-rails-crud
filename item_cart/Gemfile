@@ -51,3 +51,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #First, we’ll install the responders gem, which will let us apply a `respond_to` rule to all the actions in our controllers, making the code DRY-er.
 gem 'responders'
+
+# Add `react-rails` to the Gemfile.
+gem 'react-rails'
