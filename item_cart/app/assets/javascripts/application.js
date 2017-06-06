@@ -11,8 +11,9 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
+// I had to require jQuery below to resolve the 'ReferenceError: $ is not defined' error
+//= require jquery
 //= require react
-//= require react_ujs
 //= require components
+//= require turbolinks
 //= require_tree .

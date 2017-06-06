@@ -1,7 +1,7 @@
 // Time to move on to the next file we created previously;
 
 var NewItem = React.createClass({
-    handleClick() {
+    handleClick () {
         var name = this.refs.name.value;
 
         var description = this.refs.description.value;
@@ -18,7 +18,7 @@ var NewItem = React.createClass({
                 }
             },
 
-            success: (response) => {
+            success: (item) => {
                 this.props.handleSubmit(item);
             }
         });

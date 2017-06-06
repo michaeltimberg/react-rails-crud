@@ -54,3 +54,6 @@ gem 'responders'
 
 # Add `react-rails` to the Gemfile.
 gem 'react-rails'
+
+# Hopefully adding jQuery resolves my `$` problem!
+gem 'jquery-rails'
