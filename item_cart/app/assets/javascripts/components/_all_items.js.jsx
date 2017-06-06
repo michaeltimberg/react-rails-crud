@@ -1,6 +1,12 @@
 // First, let’s start with listing all the items.
 
 var AllItems = React.createClass({
+    handleDelete (id) {
+        this.props.handleDelete(id);
+
+        console.log('delete item clicked')
+    },
+
     render () {
         var items = this.props.items.map( (item) => {
             return (
@@ -12,6 +18,14 @@ var AllItems = React.createClass({
                     <p>
                         { item.description }
                     </p>
+
+                    <button
+                        onClick={ this.handleDelete.bind(
+                            this,
+                            item.id
+                        ) }>
+                        Delete
+                    </button>
                 </div>
             );
         });
