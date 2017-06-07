@@ -45,6 +45,34 @@ var Body = React.createClass({
         console.log('in handle delete')
     },
 
+    handleUpdate (item) {
+        $.ajax({
+            url: `/api/v1/items/${item.id}`,
+
+            type: 'PUT',
+
+            data: {item: item},
+
+            success: () => {
+                console.log('you did it!!');
+
+                this.updateItems(item);
+            }
+        });
+    },
+
+    updateItems(item) {
+        var items = this.state.items.filter(
+            (i) => {
+                return i.id != item.id
+            }
+        );
+
+        items.push(item);
+
+        this.setState({ items: items });
+    },
+
     removeItemClient(id) {
         var newItems = this.state.items.filter((item) => {
             return item.id != id;
@@ -61,7 +89,10 @@ var Body = React.createClass({
 
                 <AllItems
                     items={ this.state.items }
-                    handleDelete={ this.handleDelete } />
+
+                    handleDelete={ this.handleDelete }
+
+                    onUpdate={ this.handleUpdate } />
             </div>
         );
     }

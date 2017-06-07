@@ -7,31 +7,29 @@ var AllItems = React.createClass({
         console.log('delete item clicked')
     },
 
+    onUpdate (item) {
+        this.props.onUpdate(item);
+    },
+
     render () {
         var items = this.props.items.map( (item) => {
             return (
                 <div key={ item.id }>
-                    <h3>
-                        { item.name }
-                    </h3>
+                    <Item
+                        item={ item }
 
-                    <p>
-                        { item.description }
-                    </p>
-
-                    <button
-                        onClick={ this.handleDelete.bind(
+                        handleDelete={ this.handleDelete.bind(
                             this,
                             item.id
-                        ) }>
-                        Delete
-                    </button>
+                        ) }
+
+                        handleUpdate={ this.onUpdate } />
                 </div>
-            );
+            )
         });
 
         return (
-            <div>
+            <div name>
                 { items }
             </div>
         );
